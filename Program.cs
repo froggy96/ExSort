@@ -7,15 +7,24 @@ namespace ExSort
         static void Main(string[] args)
         {
             //
+            Console.WriteLine("Quick Sort");
             FillArrayRandom();
             PrintNums();
             QuickSortMain();
             PrintNums();
 
             //
+            Console.WriteLine("Bubble Sort");
             FillArrayRandom();
             PrintNums();
             BubbleSort();
+            PrintNums();
+
+            //
+            Console.WriteLine("Selection Sort");
+            FillArrayRandom();
+            PrintNums();
+            SelectionSort();
             PrintNums();
         }
 
@@ -126,10 +135,32 @@ namespace ExSort
             QuickSort(nums, 0, nums.Length - 1);
         }
 
+        //
+        static void BubbleSort()
+        {
+            var cnt = nums.Length;
+
+            do
+            {
+                for (int i = 0; i < cnt - 1; i++)
+                {
+                    if (nums[i] > nums[i + 1])
+                    {
+                        // swap
+                        var temp = nums[i];
+                        nums[i] = nums[i + 1];
+                        nums[i + 1] = temp;
+                    }
+                }
+                cnt--;
+            }
+            while(cnt > 0);
+        }
+
 
 
         //
-        static void BubbleSort()
+        static void SelectionSort()
         {
             for (int i = 0; i < nums.Length; i++)
             {
